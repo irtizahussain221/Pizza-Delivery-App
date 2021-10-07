@@ -1,4 +1,4 @@
-[
+const pizzas = [
     {
         "name": "PEPPER BARBECUE CHICKEN",
         "variant": [
@@ -8,13 +8,13 @@
         ],
         "prices": [
             {
-                "small": "200",
-                "medium": "350",
-                "large": "400"
+                "small": 200,
+                "medium": 350,
+                "large": 400
             }
         ],
         "category": "nonveg",
-        "image": "https://www.dominos.co.in/files/items/Pepper_Barbeque.jpg",
+        "image": "https://chefchoice.com.np/wp-content/uploads/2020/07/Pepper_Barbeque.jpg",
         "description": "Pepper Barbecue Chicken I Cheese"
     },
     {
@@ -26,13 +26,13 @@
         ],
         "prices": [
             {
-                "small": "200",
-                "medium": "350",
-                "large": "400"
+                "small": 200,
+                "medium": 350,
+                "large": 400
             }
         ],
         "category": "nonveg",
-        "image": "https://www.dominos.co.in/files/items/Non-Veg_Supreme.jpg",
+        "image": "http://feenix.co.in/wp-content/uploads/2018/02/140418-Web-Pizza_NonVegSuperme.jpg",
         "description": "Bite into supreme delight of Black Olives, Onions, Grilled Mushrooms, Pepper BBQ Chicken, Peri-Peri Chicken, Grilled Chicken Rashers"
     },
     {
@@ -44,13 +44,13 @@
         ],
         "prices": [
             {
-                "small": "180",
-                "medium": "250",
-                "large": "500"
+                "small": 180,
+                "medium": 250,
+                "large": 500
             }
         ],
         "category": "veg",
-        "image": "https://www.crazymasalafood.com/wp-content/images/golden-1.jpg",
+        "image": "https://kwikky.in/wp-content/uploads/2020/09/images-17.jpeg",
         "description": "Corn over the base makes it look beautiful. It is served with tomato sauce and chili flakes are sprinkled over the topping according the taste. After mixing all the ingredients, it is baked by adding cheese and corn for added flavor to pizza. Corn adds health and sweet taste to the pizza."
     },
     {
@@ -62,9 +62,9 @@
         ],
         "prices": [
             {
-                "small": "200",
-                "medium": "300",
-                "large": "420"
+                "small": 200,
+                "medium": 300,
+                "large": 420
             }
         ],
         "category": "veg",
@@ -80,9 +80,9 @@
         ],
         "prices": [
             {
-                "small": "150",
-                "medium": "220",
-                "large": "300"
+                "small": 150,
+                "medium": 220,
+                "large": 300
             }
         ],
         "category": "veg",
@@ -98,13 +98,15 @@
         ],
         "prices": [
             {
-                "small": "250",
-                "medium": "380",
-                "large": "500"
+                "small": 250,
+                "medium": 380,
+                "large": 500
             }
         ],
         "category": "veg",
-        "image": "https://www.crazymasalafood.com/wp-content/images/double-1.jpg",
+        "image": "https://local-cart.com/wp-content/uploads/2021/06/veg-2-double-cheese-margherita-loaded-with-extra-cheese.jpg",
         "description": "This is a plain pizza which have cheese on it which is margherita and is delicious because of the loads of cheese. After mixing all the ingredients, it is baked by adding the cheese as topping over it. The base is perfectly prepared by adding double layer of cheese over it."
     }
-]
+];
+
+export default pizzas;
