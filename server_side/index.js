@@ -1,6 +1,9 @@
 const app = require('express')();
+const cors = require('cors');
 const pizzaModel = require('./models/pizza.model');
 const db = require('./db');
+
+app.use(cors());
 
 app.get('/', (_req, res) => {
     res.send("Server listening");
