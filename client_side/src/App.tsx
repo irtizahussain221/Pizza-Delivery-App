@@ -1,13 +1,15 @@
 import React from "react";
-import NavBar from "./components/navbar/navbar";
-import Homescreen from "./screens/homescreen";
+import { cartItem } from "./interfaces/interfaces";
+import Routes from "./routes";
 
 class App extends React.Component {
   render() {
+    if (localStorage.getItem("cart") === null) {
+      localStorage.setItem("cart", JSON.stringify([] as cartItem[]));
+    }
     return (
       <div className="App">
-        <NavBar />
-        <Homescreen />
+        <Routes />
       </div>
     );
   }
