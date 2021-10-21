@@ -1,27 +1,23 @@
-const app = require('express')();
-const cors = require('cors');
-const pizzaModel = require('./models/pizza.model');
-const db = require('./db');
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const dotenv = require("dotenv");
+const routes = require("./routes/routes");
 
-app.use(cors());
+dotenv.config();
+const port = process.env.PORT;
 
-app.get('/', (_req, res) => {
-    res.send("Server listening");
-});
+const db = require("./db");
 
-app.get('/getPizzas', (_req, res) => {
-    pizzaModel.find({}, (err, docs) => {
-        if (err) {
-            console.log(error);
-        }
-        else {
-            res.send(docs)
-        }
-    })
-})
+app.use(express.json());
 
-const port = process.env.PORT || 5000;
+const corsOptions = {
+  exposedHeaders: "auth-token",
+};
+
+app.use(cors(corsOptions));
+app.use("/", routes);
 
 app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server listening at http://localhost:${port}`);
 });

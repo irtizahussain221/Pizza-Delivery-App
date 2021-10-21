@@ -1,0 +1,23 @@
+input {
+  margin-top: 10px !important;
+  box-shadow: none !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+.register {
+  background-image: url(https://sheypizza-udemy.herokuapp.com/static/media/bg2.42582b10.svg);
+}
+
+.register,
+.login {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+}

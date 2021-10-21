@@ -36,3 +36,8 @@ export interface cartItem {
   }[];
   variant: string;
 }
+
+export interface loginStatusProps {
+  isLoggedIn: boolean;
+  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
