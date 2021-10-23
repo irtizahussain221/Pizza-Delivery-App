@@ -17,6 +17,7 @@ function Login(props: loginStatusProps) {
       axios
         .post("http://localhost:5000/login", values)
         .then((res) => {
+          localStorage.setItem("jwt-token", `${res.headers["auth-token"]}`);
           axios
             .get("http://localhost:5000/getUserDetails", {
               headers: {
