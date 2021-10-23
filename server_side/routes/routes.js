@@ -77,7 +77,7 @@ router.post("/login", async (req, res) => {
 //route to send user's orders list
 router.get("/getUserDetails", validate, async (req, res) => {
   let userName = await userModel.findOne({ _id: req.user._id });
-  res.json({ name: userName.name, _id: userName._id });
+  res.json({ name: userName.name, _id: userName._id, email: userName.email });
 });
 
 //route to post user's orders list

@@ -15,7 +15,7 @@ function Routes(props: loginStatusProps) {
           <Homescreen />
         </Route>
         <Route exact path="/cart">
-          <CartScreen />
+          <CartScreen isLoggedIn={props.isLoggedIn}/>
         </Route>
         {props.isLoggedIn ? null : (
           <>

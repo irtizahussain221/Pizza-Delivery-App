@@ -1,8 +1,9 @@
+import axios from "axios";
 import { useState } from "react";
 import CartItem from "../components/cart/cartItem";
 import { cartItem } from "../interfaces/interfaces";
 
-function CartScreen() {
+function CartScreen({ isLoggedIn }: { isLoggedIn: boolean }) {
   let [cartItems, changeItems] = useState<cartItem[]>(
     JSON.parse(localStorage.getItem("cart") as string)
   );
@@ -44,6 +45,27 @@ function CartScreen() {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   };
 
+  const orderItem = () => {
+    if (isLoggedIn === false) return alert("You must be logged in to proceed!");
+    let orderedItem = {
+      email: JSON.parse(localStorage.getItem("currentUser") as string).email,
+      name: JSON.parse(localStorage.getItem("currentUser") as string).name,
+      userid: JSON.parse(localStorage.getItem("currentUser") as string)._id,
+      orderItems: cartItems,
+      orderAmount: totalAmount,
+    };
+    axios
+      .post("http://localhost:5000/postOrders", orderedItem, {
+        headers: {
+          "auth-token": `${localStorage.getItem("jwt-token")}`,
+        },
+      })
+      .then(() => {
+        alert("Your order has been placed!");
+      })
+      .catch(console.log);
+  };
+
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <div
@@ -73,7 +95,14 @@ function CartScreen() {
           <h2 style={{ fontSize: "45px" }}>Subtotal: Rs. {totalAmount}/-</h2>
           <div>
             <span>
-              <button className="btn">Pay now</button>
+              <button
+                className="btn"
+                onClick={() => {
+                  orderItem();
+                }}
+              >
+                Pay now
+              </button>
             </span>
           </div>
         </div>
