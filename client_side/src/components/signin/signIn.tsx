@@ -26,8 +26,7 @@ function Signin() {
           email: values.email,
           password: values.password,
         })
-        .then((res) => {
-          console.log(res.data);
+        .then(() => {
           history.push("/login");
         })
         .catch(console.log);

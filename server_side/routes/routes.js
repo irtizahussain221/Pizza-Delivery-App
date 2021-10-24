@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const validate = require("../verifyToken");
+const validate = require("../TokenValidation/verifyToken");
 const {
   registrationValidation,
   loginValidation,
   orderValidation,
   orderListDataValidation,
-} = require("../validate");
+} = require("../JoiValidation/validate");
 const pizzaModel = require("../models/pizza.model");
 const userModel = require("../models/user.model");
 const orderModel = require("../models/order.model");

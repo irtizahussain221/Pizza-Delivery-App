@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { cartItem } from "./interfaces/interfaces";
-import Routes from "./routes";
+import Routes from "./routes/routes";
 
 function App() {
   let [isLoggedIn, setLoggedIn] = useState(
@@ -19,3 +19,8 @@ function App() {
 }
 
 export default App;
+//to do
+//Remove any
+//add animations
+//reconfigure file system
+//error boundaries

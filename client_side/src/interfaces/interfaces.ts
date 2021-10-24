@@ -41,3 +41,31 @@ export interface loginStatusProps {
   isLoggedIn: boolean;
   setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface order {
+  _id: string;
+  email: string;
+  isDelivered: boolean;
+  name: string;
+  orderAmount: number;
+  userid: string;
+  createdAt: string;
+  updatedAt: string;
+  orderItems: {
+    image: string;
+    name: string;
+    prices: {
+      small: number;
+      medium: number;
+      large: number;
+    }[];
+    price: number;
+    quantity: number;
+    variant: string;
+    _id: string;
+  }[];
+}
+
+export interface orderProps {
+  order: order;
+}

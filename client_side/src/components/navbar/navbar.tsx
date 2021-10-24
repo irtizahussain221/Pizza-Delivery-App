@@ -32,7 +32,9 @@ function NavBar(props: loginStatusProps) {
               >
                 Logout
               </NavDropdown.Item>
-              <NavDropdown.Item className="Menu-Link">Orders</NavDropdown.Item>
+              <NavDropdown.Item href="/orders" className="Menu-Link">
+                Orders
+              </NavDropdown.Item>
             </NavDropdown>
           ) : (
             <Nav.Link href="/login" className="Menu-Link">
