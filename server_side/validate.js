@@ -46,3 +46,11 @@ module.exports.orderValidation = (data) => {
 
   return Schema.validate(data);
 };
+
+module.exports.orderListDataValidation = (data) => {
+  const Schema = Joi.object({
+    userid: Joi.string().required(),
+  });
+
+  return Schema.validate(data);
+};
