@@ -1,12 +1,13 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const validate = require("../verifyToken");
+const validate = require("../TokenValidation/verifyToken");
 const {
   registrationValidation,
   loginValidation,
   orderValidation,
-} = require("../validate");
+  orderListDataValidation,
+} = require("../JoiValidation/validate");
 const pizzaModel = require("../models/pizza.model");
 const userModel = require("../models/user.model");
 const orderModel = require("../models/order.model");
@@ -74,7 +75,7 @@ router.post("/login", async (req, res) => {
   res.send("Logged in!");
 });
 
-//route to send user's orders list
+//route to send user's details
 router.get("/getUserDetails", validate, async (req, res) => {
   let userName = await userModel.findOne({ _id: req.user._id });
   res.json({ name: userName.name, _id: userName._id, email: userName.email });
@@ -98,6 +99,22 @@ router.post("/postOrders", validate, async (req, res) => {
   try {
     let orderSaved = await order.save();
     res.json({ _id: orderSaved._id });
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+//route to send user's orders list
+
+router.post("/getOrders", validate, async (req, res) => {
+  //validating data sent inside the body of request
+  const { error } = orderListDataValidation(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  //Getting user's orders
+  try {
+    let ordersList = await orderModel.find({ userid: req.body.userid });
+    res.json(ordersList);
   } catch (e) {
     console.log(e);
   }
