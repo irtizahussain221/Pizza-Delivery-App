@@ -78,7 +78,7 @@ function CartScreen({ isLoggedIn }: { isLoggedIn: boolean }) {
           {cartItems.map((item) => {
             return (
               <>
-                <div className="flex-container">
+                <div className="flex-container" data-aos="fade-up">
                   <CartItem
                     item={item}
                     deleteAnItem={deleteAnItem}
