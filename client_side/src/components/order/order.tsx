@@ -3,7 +3,8 @@ import { orderProps } from "../../interfaces/interfaces";
 function Order({ order }: orderProps) {
   return (
     <div
-      className="col-md-4 row-eq-height m-2 p-1 aos-init aos-animate"
+      className="col-md-4 row-eq-height m-2 p-1"
+      data-aos="fade-up"
       style={{ backgroundColor: "red", color: "white" }}
     >
       <div className="flex-container">

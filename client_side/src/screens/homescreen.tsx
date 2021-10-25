@@ -64,14 +64,22 @@ function Homescreen() {
         {category === "all"
           ? pizzas.map((pizza, key) => {
               return (
-                <div className="col-md-4 row-eq-height" key={key}>
+                <div
+                  className="col-md-4 row-eq-height"
+                  data-aos="fade-up"
+                  key={key}
+                >
                   <Pizza pizza={pizza} />
                 </div>
               );
             })
           : categoryPizzas.map((pizza, key) => {
               return (
-                <div className="col-md-4 row-eq-height" key={key}>
+                <div
+                  className="col-md-4 row-eq-height"
+                  data-aos="fade-up"
+                  key={key}
+                >
                   <Pizza pizza={pizza} />
                 </div>
               );
