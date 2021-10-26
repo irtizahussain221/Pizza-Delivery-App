@@ -26,6 +26,13 @@ function Login(props: loginStatusProps) {
             })
             .then((res) => {
               localStorage.setItem("currentUser", JSON.stringify(res.data));
+              localStorage.setItem(
+                "isAdmin",
+                JSON.stringify(
+                  JSON.parse(localStorage.getItem("currentUser") as string)
+                    .isAdmin
+                )
+              );
               props.setLoggedIn(true);
               history.push("/");
             })
@@ -41,7 +48,7 @@ function Login(props: loginStatusProps) {
         .string()
         .min(6, "Type a valid email address!")
         .email("Type a valid email address!")
-        .required("This field is required."),
+        .required("This field is required!"),
       password: yup
         .string()
         .min(6, "Password is too short.")

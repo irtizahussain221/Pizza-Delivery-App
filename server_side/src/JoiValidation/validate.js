@@ -77,7 +77,7 @@ module.exports.pizzaValidation = (data) => {
       .max(1),
     category: Joi.string().valid("veg", "nonveg").required(),
     image: Joi.string().required().uri(),
-    description: Joi.string().required().min(24).max(24),
+    description: Joi.string().required(),
     userid: Joi.string().required().min(24).max(24),
   });
 

@@ -11,6 +11,10 @@ function App() {
     localStorage.setItem("cart", JSON.stringify([] as cartItem[]));
   }
 
+  if (localStorage.getItem("isAdmin") === null) {
+    localStorage.setItem("isAdmin", JSON.stringify(false));
+  }
+
   return (
     <div className="App">
       <Routes isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
@@ -21,6 +25,6 @@ function App() {
 export default App;
 //to do
 //Remove any
-//add animations
+//add spinners for loading
 //reconfigure file system
 //error boundaries

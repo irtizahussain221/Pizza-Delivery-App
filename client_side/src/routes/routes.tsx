@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AddPizza from "../components/addPizzaForm/addPizza";
 import Login from "../components/login/login";
 import NavBar from "../components/navbar/navbar";
 import Signin from "../components/signin/signIn";
@@ -35,6 +36,11 @@ function Routes(props: loginStatusProps) {
             </Route>
           </>
         )}
+        {JSON.parse(localStorage.getItem("isAdmin") as string) ? (
+          <Route exact path="/addPizza">
+            <AddPizza />
+          </Route>
+        ) : null}
       </Switch>
     </Router>
   );
