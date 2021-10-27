@@ -1,7 +1,10 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useState } from "react";
 import { cartItem } from "./interfaces/interfaces";
 import Routes from "./routes/routes";
 
+AOS.init();
 function App() {
   let [isLoggedIn, setLoggedIn] = useState(
     !(localStorage.getItem("currentUser") === null)
