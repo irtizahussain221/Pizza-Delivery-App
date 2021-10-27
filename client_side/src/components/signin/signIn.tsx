@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import "./signIn.css";
 import axios from "axios";
 
 function Signin() {

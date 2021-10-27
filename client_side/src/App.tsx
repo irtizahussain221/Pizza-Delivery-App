@@ -6,14 +6,17 @@ import Routes from "./routes/routes";
 
 AOS.init();
 function App() {
+  //setting logged in status in local storage
   let [isLoggedIn, setLoggedIn] = useState(
     !(localStorage.getItem("currentUser") === null)
   );
 
+  //setting cart array in local storage
   if (localStorage.getItem("cart") === null) {
     localStorage.setItem("cart", JSON.stringify([] as cartItem[]));
   }
 
+  //setting admin status in local storage
   if (localStorage.getItem("isAdmin") === null) {
     localStorage.setItem("isAdmin", JSON.stringify(false));
   }
@@ -26,11 +29,5 @@ function App() {
 }
 
 export default App;
-//Screens ka masla hal krna hy
-//Comments
-//to do
-//animations
-//Remove any
-//add spinners for loading
-//reconfigure file system
-//error boundaries
+
+//add spinners

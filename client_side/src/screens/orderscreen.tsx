@@ -6,6 +6,7 @@ import { order } from "../interfaces/interfaces";
 function OrderScreen() {
   let [ordersList, setOrders] = useState([] as any);
 
+  //getting list of all of user's orders
   const getOrders = () => {
     let userid = JSON.parse(localStorage.getItem("currentUser") as string)._id;
     axios

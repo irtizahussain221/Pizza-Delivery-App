@@ -9,22 +9,26 @@ function CartScreen({ isLoggedIn }: { isLoggedIn: boolean }) {
   );
   let totalAmount = 0;
 
+  //updating the total amount based on cart items
   for (let i = 0; i < cartItems.length; i++) {
     totalAmount += cartItems[i].price;
   }
 
+  //this function will remove an item "val" from an array "arr"
   const arrayRemove = (arr: cartItem[], value: cartItem) => {
     return arr.filter(function (ele) {
       return ele !== value;
     });
   };
 
+  //deletes an item from the cart
   const deleteAnItem = (item: cartItem) => {
     changeItems(arrayRemove(cartItems, item));
     cartItems = arrayRemove(cartItems, item);
     localStorage.setItem("cart", JSON.stringify(cartItems));
   };
 
+  //adds the quantity of an item in the cart
   const addQuantity = (item: cartItem) => {
     cartItems = arrayRemove(cartItems, item);
     item.quantity += 1;
@@ -35,6 +39,7 @@ function CartScreen({ isLoggedIn }: { isLoggedIn: boolean }) {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   };
 
+  //reduces the quantity of an item in the cart
   const removeQuantity = (item: cartItem) => {
     cartItems = arrayRemove(cartItems, item);
     item.quantity -= 1;
@@ -45,6 +50,7 @@ function CartScreen({ isLoggedIn }: { isLoggedIn: boolean }) {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   };
 
+  //function to order cart items to the server
   const orderItem = () => {
     if (isLoggedIn === false) return alert("You must be logged in to proceed!");
     let orderedItem = {

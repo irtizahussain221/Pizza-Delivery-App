@@ -2,7 +2,6 @@ import axios from "axios";
 import { useHistory } from "react-router";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import "./login.css";
 import { loginStatusProps } from "../../interfaces/interfaces";
 
 function Login(props: loginStatusProps) {
@@ -14,10 +13,13 @@ function Login(props: loginStatusProps) {
       password: "",
     },
     onSubmit: (values) => {
+      //recieving jwt token from server
       axios
         .post("http://localhost:5000/login", values)
         .then((res) => {
           localStorage.setItem("jwt-token", `${res.headers["auth-token"]}`);
+
+          //getting user details from server using jwt-token
           axios
             .get("http://localhost:5000/getUserDetails", {
               headers: {
@@ -25,6 +27,7 @@ function Login(props: loginStatusProps) {
               },
             })
             .then((res) => {
+              //saving user's information
               localStorage.setItem("currentUser", JSON.stringify(res.data));
               localStorage.setItem(
                 "isAdmin",

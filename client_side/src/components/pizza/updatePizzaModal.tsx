@@ -11,6 +11,7 @@ function UpdatePizzaModal(props: updatePizzaModalProps) {
     },
     onSubmit: async (values) => {
       try {
+        //updating pizza inside the database
         await axios.put(
           "http://localhost:5000/updatePizza",
           {

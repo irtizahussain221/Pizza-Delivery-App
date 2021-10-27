@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { order } from "../../interfaces/interfaces";
-import Order from "./order";
+import { order } from "../interfaces/interfaces";
+import Order from "../components/order/order";
 
 function AllOrders() {
   const [ordersList, setList] = useState([] as order[]);
   const [isListUpdated, setListUpdated] = useState(false);
 
+  //getting all orders from the database for admin
   const getOrders = async () => {
     try {
       const { data } = await axios.get(
@@ -26,6 +27,7 @@ function AllOrders() {
     }
   };
 
+  //enabling admin to update the delivery status of orders
   const handleClick = async (orderID: string) => {
     let data = {
       orderID,
@@ -44,6 +46,7 @@ function AllOrders() {
     }
   };
 
+  //updating the order list every time the delivery status is updated
   useEffect(() => {
     getOrders();
   }, [isListUpdated]);

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { pizzaProps, Pizzas, cartItem } from "./../../interfaces/interfaces";
-import "./pizza.css";
-import PizzaModal from "./modal";
+import PizzaModal from "./pizzaInfoModal";
 import axios from "axios";
-import PizzaItem from "./item";
+import PizzaItem from "./pizzaItem";
 import UpdatePizzaModal from "./updatePizzaModal";
 
 function Pizza(props: pizzaProps) {
@@ -12,21 +11,26 @@ function Pizza(props: pizzaProps) {
   const [show, setShow] = useState(false);
   const [showUpdateModal, setUpdateModal] = useState(false);
 
+  //handle pizza information modal
   const handleShow = () => {
     setShow(!show);
   };
 
+  //handle pizza update modal
   const handleUpdateModalShow = () => {
     setUpdateModal(!showUpdateModal);
   };
 
+  //function to remove an existing element from an array
   const arrayRemove = (arr: cartItem[], value: cartItem) => {
     return arr.filter((ele) => {
       return ele !== value;
     });
   };
 
+  //function to add an element to a cart
   const addToCart = (pizza: Pizzas) => {
+    //item to be added
     let cartItem = {
       _id: pizza._id,
       quantity: quantity,
@@ -37,18 +41,22 @@ function Pizza(props: pizzaProps) {
       variant: variant,
     };
 
+    //adding the item
     let allCartItems: cartItem[] = JSON.parse(
       localStorage.getItem("cart") as string
     );
 
+    //checking whether the item already exists
     let alreadyPresentItem = allCartItems.filter((item) => {
       return item._id === cartItem._id && item.variant === cartItem.variant;
     });
 
     if (alreadyPresentItem.length === 0) {
+      //if the current item is not already present in the cart
       allCartItems.push(cartItem);
       localStorage.setItem("cart", JSON.stringify(allCartItems as cartItem[]));
     } else {
+      //if current item is present, then avoiding duplication by updating
       cartItem.quantity = alreadyPresentItem[0].quantity + cartItem.quantity;
       cartItem.price = cartItem.quantity * cartItem.price;
       let result = arrayRemove(allCartItems, alreadyPresentItem[0]);
@@ -57,6 +65,7 @@ function Pizza(props: pizzaProps) {
     }
   };
 
+  //function to enable admin to delete pizza from an array permanently
   const deletePizza = () => {
     axios
       .post(

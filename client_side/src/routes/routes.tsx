@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import AddPizza from "../components/pizza/addPizza";
+import AddPizza from "../screens/addpizzascreen";
 import Login from "../components/login/login";
 import NavBar from "../components/navbar/navbar";
 import Signin from "../components/signin/signIn";
@@ -7,7 +7,7 @@ import { loginStatusProps } from "../interfaces/interfaces";
 import CartScreen from "../screens/cartscreen";
 import Homescreen from "../screens/homescreen";
 import OrderScreen from "../screens/orderscreen";
-import AllOrders from "../components/order/adminOrders";
+import AllOrders from "../screens/adminorderscreen";
 
 function Routes(props: loginStatusProps) {
   return (

@@ -1,8 +1,8 @@
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { loginStatusProps } from "../../interfaces/interfaces";
-import "./navbar.css";
 
 function NavBar(props: loginStatusProps) {
+  //function to handle user logout
   const handleClick = () => {
     localStorage.removeItem("currentUser");
     localStorage.removeItem("jwt-token");

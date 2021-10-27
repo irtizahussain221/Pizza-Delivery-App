@@ -13,3 +13,77 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.login {
+  background-image: url(https://sheypizza-udemy.herokuapp.com/static/media/bg1.d5885ad7.svg);
+}
+
+.Navbar {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  padding: 10px !important;
+  line-height: 40px !important;
+}
+
+.Home-Link {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.Home-Link:hover {
+  text-decoration: underline !important;
+}
+
+.Menu-Link {
+  color: rgba(0, 0, 0, 0.55) !important;
+  text-decoration: none !important;
+}
+
+.Menu-Link:hover {
+  text-decoration: underline !important;
+}
+
+h1 {
+  font-size: 20px !important;
+}
+
+.flex-container {
+  display: flex !important;
+}
+
+.btn {
+  background-color: red !important;
+  color: white !important;
+}
+
+select {
+  box-shadow: none !important;
+  border-color: black !important;
+}
+
+.hover-item {
+  cursor: pointer;
+}
+
+input {
+  margin-top: 10px !important;
+  box-shadow: none !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+.register {
+  background-image: url(https://sheypizza-udemy.herokuapp.com/static/media/bg2.42582b10.svg);
+}
+
+.register,
+.login {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+}
