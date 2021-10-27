@@ -78,31 +78,31 @@ function Homescreen() {
             </select>
           </div>
         </div>
-      </div>
-      <div className="row">
-        {category === "all"
-          ? pizzas.map((pizza, key) => {
-              return (
-                <div
-                  className="col-md-4 row-eq-height"
-                  data-aos="fade-up"
-                  key={key}
-                >
-                  <Pizza pizza={pizza} setScreenUpdated={setScreenUpdated} />
-                </div>
-              );
-            })
-          : categoryPizzas.map((pizza, key) => {
-              return (
-                <div
-                  className="col-md-4 row-eq-height"
-                  data-aos="fade-up"
-                  key={key}
-                >
-                  <Pizza pizza={pizza} setScreenUpdated={setScreenUpdated} />
-                </div>
-              );
-            })}
+        <div className="row">
+          {category === "all"
+            ? pizzas.map((pizza, key) => {
+                return (
+                  <div
+                    className="col-md-6 row-eq-height"
+                    data-aos="fade-up"
+                    key={key}
+                  >
+                    <Pizza pizza={pizza} setScreenUpdated={setScreenUpdated} />
+                  </div>
+                );
+              })
+            : categoryPizzas.map((pizza, key) => {
+                return (
+                  <div
+                    className="col-md-6 row-eq-height"
+                    data-aos="fade-up"
+                    key={key}
+                  >
+                    <Pizza pizza={pizza} setScreenUpdated={setScreenUpdated} />
+                  </div>
+                );
+              })}
+        </div>
       </div>
     </>
   );
