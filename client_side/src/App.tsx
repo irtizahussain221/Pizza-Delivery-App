@@ -23,7 +23,10 @@ function App() {
 }
 
 export default App;
+//Screens ka masla hal krna hy
+//Comments
 //to do
+//animations
 //Remove any
 //add spinners for loading
 //reconfigure file system

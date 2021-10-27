@@ -69,7 +69,7 @@ function CartScreen({ isLoggedIn }: { isLoggedIn: boolean }) {
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <div
-        className="row justify-content-center p-2 aos-init aos-animate"
+        className="row justify-content-center p-2"
         data-aos="fade-down"
         style={{ marginRight: "-15px" }}
       >
@@ -101,7 +101,7 @@ function CartScreen({ isLoggedIn }: { isLoggedIn: boolean }) {
                   orderItem();
                 }}
               >
-                Pay now
+                Order now
               </button>
             </span>
           </div>

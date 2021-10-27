@@ -51,6 +51,11 @@ function NavBar(props: loginStatusProps) {
               Add Pizza
             </Nav.Link>
           ) : null}
+          {JSON.parse(localStorage.getItem("isAdmin") as string) ? (
+            <Nav.Link href="/allOrders" className="Menu-Link">
+              Orders
+            </Nav.Link>
+          ) : null}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

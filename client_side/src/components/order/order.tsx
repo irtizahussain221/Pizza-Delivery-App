@@ -27,6 +27,10 @@ function Order({ order }: orderProps) {
           <p>Order Amount : {order.orderAmount}</p>
           <p>Date : {new Date(order.createdAt).toDateString()}</p>
           <p>Order Id : {order._id}</p>
+          <p>
+            Delivery Status :{" "}
+            {order.isDelivered ? <>Delivered</> : <>Undelivered</>}
+          </p>
         </div>
       </div>
     </div>
