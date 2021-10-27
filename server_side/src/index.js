@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -7,7 +8,17 @@ const routes = require("./routes/routes");
 dotenv.config();
 const port = process.env.PORT;
 
-const db = require("./db");
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
+  .then(() => {
+    console.log("Connection with database established");
+  })
+  .catch((e) => {
+    console.log(e.message);
+  });
 
 app.use(express.json());
 
@@ -18,6 +29,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use("/", routes);
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

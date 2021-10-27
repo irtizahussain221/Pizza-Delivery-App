@@ -13,19 +13,21 @@ function Homescreen() {
   const dispatch = useDispatch();
   const [categoryPizzas, setCategoryPizzas] = useState([] as Pizzas[]);
   const [category, selectedCategory] = useState("all");
+  const [isScreenUpdated, setScreenUpdated] = useState(false);
 
   function getPizzas() {
     axios
       .get("http://localhost:5000/getPizzas")
       .then((res) => {
         dispatch(setPizzas(res.data));
+        setScreenUpdated(false);
       })
       .catch(console.log);
   }
 
   useEffect(() => {
     getPizzas();
-  }, []);
+  }, [isScreenUpdated]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     selectedCategory(e.currentTarget.value);
@@ -64,23 +66,33 @@ function Homescreen() {
         {category === "all"
           ? pizzas.map((pizza, key) => {
               return (
+<<<<<<< HEAD
                 <div
                   className="col-md-4 row-eq-height"
                   data-aos="fade-up"
                   key={key}
                 >
                   <Pizza pizza={pizza} />
+=======
+                <div className="col-md-4 row-eq-height" key={key}>
+                  <Pizza pizza={pizza} setScreenUpdated={setScreenUpdated} />
+>>>>>>> admin_panel
                 </div>
               );
             })
           : categoryPizzas.map((pizza, key) => {
               return (
+<<<<<<< HEAD
                 <div
                   className="col-md-4 row-eq-height"
                   data-aos="fade-up"
                   key={key}
                 >
                   <Pizza pizza={pizza} />
+=======
+                <div className="col-md-4 row-eq-height" key={key}>
+                  <Pizza pizza={pizza} setScreenUpdated={setScreenUpdated} />
+>>>>>>> admin_panel
                 </div>
               );
             })}

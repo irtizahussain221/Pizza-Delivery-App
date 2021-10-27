@@ -1,5 +1,6 @@
 export interface pizzaProps {
   pizza: Pizzas;
+  setScreenUpdated: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface cartProps {
@@ -68,4 +69,33 @@ export interface order {
 
 export interface orderProps {
   order: order;
+}
+
+export interface pizzaModalProps {
+  name: string;
+  image: string;
+  show: boolean;
+  description: string;
+  handleShow: () => void;
+}
+
+export interface pizzaItemProps {
+  pizza: Pizzas;
+  handleShow: () => void;
+  variant: "small" | "medium" | "large";
+  setVariant: React.Dispatch<
+    React.SetStateAction<"small" | "medium" | "large">
+  >;
+  quantity: number;
+  setQuantity: React.Dispatch<React.SetStateAction<number>>;
+  addToCart: (pizza: Pizzas) => void;
+  deletePizza: () => void;
+  handleUpdateModalShow: () => void;
+}
+
+export interface updatePizzaModalProps {
+  pizzaID: string;
+  showUpdateModal: boolean;
+  handleUpdateModalShow: () => void;
+  setScreenUpdated: React.Dispatch<React.SetStateAction<boolean>>;
 }

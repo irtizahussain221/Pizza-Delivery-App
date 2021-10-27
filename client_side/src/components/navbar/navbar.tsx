@@ -5,6 +5,8 @@ import "./navbar.css";
 function NavBar(props: loginStatusProps) {
   const handleClick = () => {
     localStorage.removeItem("currentUser");
+    localStorage.removeItem("jwt-token");
+    localStorage.setItem("isAdmin", JSON.stringify(false));
     props.setLoggedIn(false);
   };
 
@@ -44,6 +46,16 @@ function NavBar(props: loginStatusProps) {
           <Nav.Link href="/cart" className="Menu-Link">
             Cart
           </Nav.Link>
+          {JSON.parse(localStorage.getItem("isAdmin") as string) ? (
+            <Nav.Link href="/addPizza" className="Menu-Link">
+              Add Pizza
+            </Nav.Link>
+          ) : null}
+          {JSON.parse(localStorage.getItem("isAdmin") as string) ? (
+            <Nav.Link href="/allOrders" className="Menu-Link">
+              Orders
+            </Nav.Link>
+          ) : null}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
