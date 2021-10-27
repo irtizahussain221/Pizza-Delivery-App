@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import store from "./redux/store";
 import { Provider } from "react-redux";
-import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
@@ -15,4 +14,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-reportWebVitals();
