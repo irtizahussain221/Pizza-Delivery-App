@@ -25,6 +25,7 @@ function Homescreen() {
         setScreenUpdated(false);
       })
       .catch((e) => {
+        alert("something bad happened!");
         console.log(e);
         setLoaded(true);
       });

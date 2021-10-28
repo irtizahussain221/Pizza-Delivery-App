@@ -33,6 +33,7 @@ function UpdatePizzaModal(props: updatePizzaModalProps) {
         alert("Item updated!");
         props.setScreenUpdated(true);
       } catch (e) {
+        alert("Something bad happened!");
         console.log(e);
       }
     },

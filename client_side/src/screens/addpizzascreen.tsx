@@ -37,6 +37,7 @@ function AddPizza() {
         });
         alert("Pizza Added!");
       } catch (e) {
+        alert("Something bad happened!");
         console.log(e);
       }
     },

@@ -28,7 +28,10 @@ function Signin() {
         .then(() => {
           history.push("/login");
         })
-        .catch(console.log);
+        .catch((e) => {
+          console.log(e);
+          alert("Something bad happened!");
+        });
     },
     validationSchema: yup.object({
       name: yup

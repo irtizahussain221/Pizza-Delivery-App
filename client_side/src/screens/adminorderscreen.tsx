@@ -23,6 +23,7 @@ function AllOrders() {
       setList(data);
       setListUpdated(false);
     } catch (e) {
+      alert("Something bad happened!");
       console.log(e);
     }
   };

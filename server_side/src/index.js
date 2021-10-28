@@ -7,6 +7,9 @@ const orderRoutes = require("./routes/order.routes");
 const pizzaRoutes = require("./routes/pizza.routes");
 const userRoutes = require("./routes/user.routes");
 
+//saving the path to views directory in path variable
+const path = __dirname + "/views";
+
 //using dotenv to read variables in .env file
 dotenv.config();
 
@@ -23,6 +26,8 @@ mongoose
     console.log(e.message);
   });
 
+app.use(express.static(path));
+
 //parsing bodies of incoming requests
 app.use(express.json());
 
@@ -35,6 +40,11 @@ app.use(cors(corsOptions));
 
 //using routes
 app.use("/", userRoutes, pizzaRoutes, orderRoutes);
+
+//Serving frontend react from express server
+app.get("/*", (_req, res) => {
+  res.sendFile(path + "/index.html");
+});
 
 //listening to incoming requests and responses
 app.listen(process.env.PORT, () => {

@@ -22,7 +22,10 @@ function OrderScreen() {
       .then((res) => {
         setOrders(res.data);
       })
-      .catch(console.log);
+      .catch((e) => {
+        console.log(e);
+        alert("Something bad happened!");
+      });
   };
   useEffect(() => {
     getOrders();

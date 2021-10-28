@@ -87,6 +87,7 @@ function Pizza(props: pizzaProps) {
         }
       })
       .catch((e) => {
+        alert("Something bad happened");
         console.log(e);
       });
   };
